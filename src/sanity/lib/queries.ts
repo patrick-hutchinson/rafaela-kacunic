@@ -32,6 +32,8 @@ export const projectsQuery = `*[_type=="project"]{
 
 export const projectQuery = `*[_type=="project" && slug.current == $slug][0]{
     name,
+    year,
+    orderRank,
     thumbnail {
       "type": type,
       "url": select(

@@ -87,11 +87,22 @@ h3 {
 
 a,
 a:hover,
-a:visited {
+a:visited,
+button,
+button:hover,
+button:visited {
   color: #d9d9d9;
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 4%;
+  font-size: unset;
+  font-family: unset;
+}
+button {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background: transparent;
 }
 
 footer {
@@ -101,15 +112,10 @@ footer {
   align-items: center;
 }
 
-.shared_layout footer {
-  position: absolute;
-  bottom: 10%;
-}
-
 header {
   position: fixed;
-
-  width: 100%;
+  top: var(--margin);
+  width: calc(100% - (2 * var(--margin)));
   display: flex;
   justify-content: flex-end; /* push content to the right */
   padding-right: 50px; /* distance from the right edge */
@@ -123,6 +129,11 @@ header {
     --fs1: 48px;
     --lh1: 40px;
     --ls1: -2.5%;
+  }
+
+  footer {
+    height: 242px;
+    justify-content: center;
   }
 }
 
@@ -138,6 +149,10 @@ header {
     flex-direction: row;
     gap: 40px;
     justify-content: center;
+  }
+
+  header {
+    padding-right: 100px;
   }
 }
 

@@ -2,10 +2,13 @@
 
 import { useState } from "react";
 
-import Media from "@/components/Media";
-import styles from "./styles.module.css";
+import { PortableText } from "@portabletext/react";
+import Link from "next/link";
 
-const Project = ({ project }) => {
+import Media from "@/components/Media";
+import styles from "./project.module.css";
+
+const Project = ({ project, displayNumber }) => {
   const complete_gallery = [project.thumbnail, ...(project.image_gallery ?? [])];
 
   const image_count = complete_gallery.length;
@@ -19,12 +22,31 @@ const Project = ({ project }) => {
   return (
     <main>
       <div className={styles.project_header}>
-        <div onClick={() => toggleInfo()}>INFO</div>
-        <div>{`${currentIndex} / ${image_count}`}</div>
-        <div>BACK</div>
+        <button onClick={() => toggleInfo()}>{showInfo ? "CLOSE" : "INFO"}</button>
+        <div>{`${currentIndex + 1} / ${image_count}`}</div>
+        <Link href="/">BACK</Link>
       </div>
 
-      {showInfo && <div className={styles.info}>{project.info}</div>}
+      {showInfo && (
+        <div className={styles.info}>
+          <p>{`${displayNumber}. ${project.name} (${image_count} images) ${project.year}`}</p>
+          <PortableText
+            value={project.about}
+            components={{
+              marks: {
+                link: ({ value, children }) => {
+                  const href = value?.href || value?.link; // depending on your schema
+                  return (
+                    <a href={href} target="_blank" rel="noopener noreferrer">
+                      {children}
+                    </a>
+                  );
+                },
+              },
+            }}
+          />
+        </div>
+      )}
 
       <div className={styles.media_wrapper} onClick={() => handleImageNavigation()}>
         <Media medium={complete_gallery[currentIndex]} />

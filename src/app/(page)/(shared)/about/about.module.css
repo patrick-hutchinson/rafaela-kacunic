@@ -1,0 +1,26 @@
+.section {
+  margin-bottom: 24px;
+}
+
+.section_header {
+  position: sticky;
+  top: var(--margin);
+  bottom: var(--margin);
+}
+
+/* Phones */
+@media screen and (min-width: 320px) {
+  .section_header {
+    position: sticky;
+    top: var(--margin);
+    bottom: var(--margin);
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .about_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* three columns */
+    gap: var(--margin);
+  }
+}

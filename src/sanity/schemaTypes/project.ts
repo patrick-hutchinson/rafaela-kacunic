@@ -13,6 +13,7 @@ export const project = defineType({
       hidden: true, // required by the plugin, but hidden in Studio
     }),
     defineField({ name: "name", title: "Name", type: "string" }),
+    defineField({ name: "year", title: "Year", type: "string" }),
     defineField({
       name: "about",
       title: "About",

@@ -1,15 +1,19 @@
 .project_header {
   position: fixed;
-  top: var(--margin);
-  width: 100%;
+  width: calc(100% - (2 * var(--margin)));
+  align-items: center;
   display: flex;
+
+  top: var(--margin);
+
   justify-content: space-between;
 }
 
 .info {
   position: absolute;
-  top: 0px;
-  background: red;
+  top: calc(var(--margin) + var(--fs3));
+  mix-blend-mode: difference;
+  color: #fff;
 }
 
 .media_wrapper {

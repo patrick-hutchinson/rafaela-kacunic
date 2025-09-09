@@ -6,7 +6,12 @@ const Footer = () => {
   return (
     <footer>
       <div>All rights reserved.</div>
-      <Link href="/legal">PRIVACY & IMPRINT</Link>
+      <Link href="/legal">
+        <div style={{ textAlign: "center" }}>
+          PRIVACY & <br />
+          IMPRINT
+        </div>
+      </Link>
       <div>{year} Rafaela Kaćunić</div>
     </footer>
   );
