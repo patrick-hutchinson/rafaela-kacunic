@@ -16,7 +16,7 @@ export default function Home({ projects, home }) {
       <motion.div className={styles.project_grid}>
         {projects.map((project, index) => (
           <div key={index} className={styles.media_wrapper}>
-            <Link href={project.slug.current}>
+            <Link href={`/projects/${project.slug.current}`}>
               <Media medium={project.thumbnail} />
             </Link>
           </div>

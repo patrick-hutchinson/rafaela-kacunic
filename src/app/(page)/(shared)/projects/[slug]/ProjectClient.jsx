@@ -3,8 +3,8 @@
 import { useState } from "react";
 
 import { PortableText } from "@portabletext/react";
-import Link from "next/link";
 
+import Header from "@/components/Header";
 import Media from "@/components/Media";
 import styles from "./project.module.css";
 
@@ -21,13 +21,7 @@ const Project = ({ project, displayNumber }) => {
 
   return (
     <main>
-      <div className={styles.project_header}>
-        <div>
-          <button onClick={() => toggleInfo()}>{showInfo ? "CLOSE" : "INFO"}</button>
-        </div>
-        <div>{`${currentIndex + 1} / ${image_count}`}</div>
-        <Link href="/">BACK</Link>
-      </div>
+      <Header currentIndex={currentIndex} image_count={image_count} showInfo={showInfo} onInfoClick={toggleInfo} />
 
       {showInfo && (
         <div className={styles.info}>
