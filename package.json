@@ -8,8 +8,11 @@
     "start": "next start"
   },
   "dependencies": {
+    "@portabletext/react": "^4.0.3",
     "@sanity/image-url": "^1.2.0",
+    "@sanity/orderable-document-list": "^1.4.0",
     "@sanity/vision": "^4.6.1",
+    "framer-motion": "^12.23.12",
     "next": "15.5.2",
     "next-sanity": "^10.0.16",
     "react": "19.1.0",

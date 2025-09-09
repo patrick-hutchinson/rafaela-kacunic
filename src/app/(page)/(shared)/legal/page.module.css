@@ -1,0 +1,11 @@
+.section {
+  margin-bottom: 24px;
+}
+
+@media screen and (min-width: 769px) {
+  .legal_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* three columns */
+    gap: 0;
+  }
+}

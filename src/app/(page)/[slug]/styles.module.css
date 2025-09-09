@@ -1,0 +1,31 @@
+.project_header {
+  position: fixed;
+  top: var(--margin);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.info {
+  position: absolute;
+  top: 0px;
+  background: red;
+}
+
+.media_wrapper {
+  box-sizing: border-box;
+  height: calc(100dvh - (2 * var(--margin)));
+
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.media_wrapper img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
