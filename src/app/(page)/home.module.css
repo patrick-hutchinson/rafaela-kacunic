@@ -96,7 +96,7 @@
 /* Hero */
 .hero {
   text-align: center;
-  height: 480px;
+  height: 410px;
   display: flex;
   flex-direction: column;
   justify-content: space-around; /* vertical spacing */
@@ -107,12 +107,20 @@
 .tagline {
   pointer-events: none;
   z-index: 2;
+  position: relative;
+}
+
+.tagline_inner {
+  display: inline-block;
+  position: relative;
 }
 
 .passport_container {
   position: absolute;
   left: 19px;
   z-index: 1;
+
+  top: 50%;
 }
 
 .passport_container:hover .mask {
@@ -141,6 +149,9 @@
   .passport_container {
     left: 61px;
   }
+  .hero {
+    height: 586px;
+  }
 }
 
 /* Desktop */
@@ -157,5 +168,11 @@
 @media screen and (min-width: 2560px) {
   .project_grid {
     grid-template-columns: repeat(6, 1fr); /* 4 items per row */
+  }
+  .tagline {
+    padding: 0 20%;
+  }
+  .hero {
+    height: 1160px;
   }
 }

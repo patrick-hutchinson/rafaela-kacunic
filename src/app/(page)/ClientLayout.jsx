@@ -45,7 +45,7 @@ const ClientLayout = ({ children }) => {
   };
 
   return (
-    <main>
+    <>
       <motion.div
         className={styles.nameplate}
         ref={nameplate}
@@ -65,7 +65,7 @@ const ClientLayout = ({ children }) => {
       </motion.div>
 
       {children}
-    </main>
+    </>
   );
 };
 

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { PortableText } from "@portabletext/react";
+import Text from "@/components/Text";
 
 import Header from "@/components/Header";
 import Media from "@/components/Media";
@@ -26,21 +26,7 @@ const Project = ({ project, displayNumber }) => {
       {showInfo && (
         <div className={styles.info}>
           <p>{`${displayNumber}. ${project.name} (${image_count} images) ${project.year}`}</p>
-          <PortableText
-            value={project.about}
-            components={{
-              marks: {
-                link: ({ value, children }) => {
-                  const href = value?.href || value?.link; // depending on your schema
-                  return (
-                    <a href={href} target="_blank" rel="noopener noreferrer">
-                      {children}
-                    </a>
-                  );
-                },
-              },
-            }}
-          />
+          <Text text={project.about} />
         </div>
       )}
 

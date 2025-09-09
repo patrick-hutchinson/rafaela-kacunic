@@ -24,25 +24,30 @@ export default function Home({ projects, home }) {
       </motion.div>
 
       <div className={styles.hero}>
-        <div className={`${styles.tagline} ff1`}>{home.tagline}</div>
-        <Footer />
-        <div className={styles.passport_container} style={{ width: `${94}px`, height: `${120}px` }}>
-          <Image
-            src="/assets/images/PassfotoRK.png"
-            alt="Passport"
-            width={94}
-            height={120}
-            style={{ width: `${94}px`, height: `${120}px` }}
-          />
-          <Image
-            src="/assets/images/MaskePF.png"
-            alt="Mask"
-            width={110}
-            height={172}
-            className={styles.mask}
-            style={{ width: `${110}px`, height: `${172}px` }}
-          />
+        <div className={`${styles.tagline} ff1`}>
+          <div className={styles.tagline_inner}>
+            {home.tagline}
+
+            <div className={styles.passport_container} style={{ width: `${94}px`, height: `${120}px` }}>
+              <Image
+                src="/assets/images/PassfotoRK.png"
+                alt="Passport"
+                width={94}
+                height={120}
+                style={{ width: `${94}px`, height: `${120}px` }}
+              />
+              <Image
+                src="/assets/images/MaskePF.png"
+                alt="Mask"
+                width={110}
+                height={172}
+                className={styles.mask}
+                style={{ width: `${110}px`, height: `${172}px` }}
+              />
+            </div>
+          </div>
         </div>
+        <Footer />
       </div>
     </div>
   );

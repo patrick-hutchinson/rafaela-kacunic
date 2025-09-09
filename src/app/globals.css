@@ -138,7 +138,7 @@ header .back_button {
   }
 
   footer {
-    height: 242px;
+    /* height: 242px; */
     justify-content: center;
   }
 }
