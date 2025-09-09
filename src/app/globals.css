@@ -45,6 +45,7 @@ li {
 html,
 body {
   max-width: 100vw;
+  overscroll-behavior: none;
 }
 
 body {
@@ -97,6 +98,7 @@ button:visited {
   letter-spacing: 4%;
   font-size: unset;
   font-family: unset;
+  text-align: unset;
 }
 button {
   border: 0;
@@ -115,11 +117,10 @@ footer {
 header {
   position: fixed;
   top: var(--margin);
-  width: calc(100% - (2 * var(--margin)));
+  width: 100%;
   display: flex;
   justify-content: flex-end; /* push content to the right */
   padding-right: 50px; /* distance from the right edge */
-
   align-items: center; /* vertically center */
 }
 

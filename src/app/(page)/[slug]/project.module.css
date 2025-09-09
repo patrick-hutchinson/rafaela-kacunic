@@ -2,11 +2,11 @@
   position: fixed;
   width: calc(100% - (2 * var(--margin)));
   align-items: center;
-  display: flex;
-
   top: var(--margin);
 
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 160px 79px auto;
+  padding-right: 50px;
 }
 
 .info {
@@ -32,4 +32,10 @@
   height: auto;
   max-width: 100%;
   max-height: 100%;
+}
+
+@media screen and (min-width: 769px) {
+  .info {
+    max-width: 33%;
+  }
 }

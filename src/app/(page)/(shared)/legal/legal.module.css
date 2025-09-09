@@ -1,5 +1,12 @@
-.section {
-  margin-bottom: 24px;
+.text_wrapper {
+  margin-top: var(--fs3);
+  padding-bottom: 24px;
+}
+
+.section_header {
+  position: sticky;
+  top: var(--margin);
+  bottom: var(--margin);
 }
 
 @media screen and (min-width: 769px) {

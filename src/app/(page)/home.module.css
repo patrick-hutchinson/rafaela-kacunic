@@ -1,7 +1,6 @@
 /* Nameplate */
 .nameplate {
   width: 100%;
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -42,11 +41,35 @@
   transition: opacity 0.3s ease-out;
 }
 
-.nameplate_inner:hover .nameplate_text {
+.nameplate_inner.showIcon .nameplate_text {
   opacity: 0;
 }
-.nameplate_inner:hover .nameplate_icon {
+
+.nameplate_inner.showIcon .nameplate_icon {
   opacity: 1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .nameplate_inner:hover .nameplate_text {
+    opacity: 0;
+  }
+  .nameplate_inner:hover .nameplate_icon {
+    opacity: 1;
+  }
+
+  .nameplate_inner.showIcon:hover .nameplate_icon {
+    opacity: 0;
+  }
+  .nameplate_inner.showIcon:hover .nameplate_text {
+    opacity: 1;
+  }
+
+  .nameplate_inner.showIcon:hover .nameplate_icon {
+    opacity: 0;
+  }
+  .nameplate_inner.showIcon:hover .nameplate_text {
+    opacity: 1;
+  }
 }
 
 /* Project Grid */

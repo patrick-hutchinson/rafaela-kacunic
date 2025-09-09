@@ -7,8 +7,8 @@ const LegalClient = ({ legal }) => {
     <main className={styles.main}>
       <div className={styles.legal_container}>
         <section className={`${styles.section} ${styles.imprint} ff2`}>
-          <h3 style={{ position: "fixed", top: "var(--margin)" }}>imprint</h3>
-          <div style={{ marginTop: "var(--fs3)" }}>
+          <h3 className={styles.section_header}>imprint</h3>
+          <div className={styles.text_wrapper}>
             <PortableText
               value={legal.imprint}
               components={{
@@ -28,8 +28,8 @@ const LegalClient = ({ legal }) => {
         </section>
 
         <section className={`${styles.section} ${styles.privacy_policy} ff3`}>
-          <h3 style={{ position: "fixed", top: "var(--margin)" }}>privacy policy</h3>
-          <div style={{ marginTop: "var(--fs3)" }}>
+          <h3 className={styles.section_header}>privacy policy</h3>
+          <div className={styles.text_wrapper}>
             <PortableText
               value={legal.privacy_policy}
               components={{

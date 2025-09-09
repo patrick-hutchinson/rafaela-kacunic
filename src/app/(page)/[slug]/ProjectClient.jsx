@@ -22,7 +22,9 @@ const Project = ({ project, displayNumber }) => {
   return (
     <main>
       <div className={styles.project_header}>
-        <button onClick={() => toggleInfo()}>{showInfo ? "CLOSE" : "INFO"}</button>
+        <div>
+          <button onClick={() => toggleInfo()}>{showInfo ? "CLOSE" : "INFO"}</button>
+        </div>
         <div>{`${currentIndex + 1} / ${image_count}`}</div>
         <Link href="/">BACK</Link>
       </div>
