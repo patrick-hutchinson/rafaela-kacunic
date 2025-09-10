@@ -23,7 +23,6 @@ const Media = React.memo(({ medium }) => {
 
   // Handle Sanity Video
   if (medium.type === "video") {
-    console.log(medium, "video");
     return (
       <video playsInline autoPlay loop muted>
         <source type="video/mp4" src={medium.url} />

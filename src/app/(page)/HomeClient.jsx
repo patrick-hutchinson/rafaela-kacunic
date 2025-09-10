@@ -3,17 +3,19 @@
 import styles from "./home.module.css";
 
 import Image from "next/image";
-import Link from "next/link";
+// import Link from "next/link";
+
+import { Link } from "next-view-transitions";
 
 import Media from "@/components/Media";
 import Footer from "@/components/Footer";
 
-import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 export default function Home({ projects, home }) {
   return (
-    <div>
-      <motion.div className={styles.project_grid}>
+    <>
+      <div className={styles.project_grid}>
         {projects.map((project, index) => (
           <div key={index} className={styles.media_wrapper}>
             <Link href={`/projects/${project.slug.current}`}>
@@ -21,14 +23,14 @@ export default function Home({ projects, home }) {
             </Link>
           </div>
         ))}
-      </motion.div>
+      </div>
 
       <div className={styles.hero}>
         <div className={`${styles.tagline} ff1`}>
           <div className={styles.tagline_inner}>
-            {home.tagline}
+            <div style={{ display: "inline-block", position: "relative", zIndex: 2 }}>{home.tagline}</div>
 
-            <div className={styles.passport_container} style={{ width: `${94}px`, height: `${120}px` }}>
+            <div className={styles.passport_container} style={{ width: `${94}px`, height: `${120}px`, zIndex: 1 }}>
               <Image
                 src="/assets/images/PassfotoRK.png"
                 alt="Passport"
@@ -49,6 +51,6 @@ export default function Home({ projects, home }) {
         </div>
         <Footer />
       </div>
-    </div>
+    </>
   );
 }

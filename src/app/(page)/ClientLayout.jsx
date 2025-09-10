@@ -2,18 +2,28 @@
 
 import { useState, useEffect, useRef } from "react";
 
+import { ViewTransitions } from "next-view-transitions";
+
 import { motion } from "framer-motion";
+
 import { enableScroll, disableScroll } from "@/helpers/blockScrolling";
 
 import { usePathname } from "next/navigation";
 
-import Link from "next/link";
+// import Link from "next/link";
+import { Link } from "next-view-transitions";
 
 import styles from "./home.module.css";
 
 const ClientLayout = ({ children }) => {
+  // Route Change and AnimatePresence
   const pathname = usePathname(); // reactive, updates on route change
 
+  useEffect(() => {
+    console.log(pathname, "pathname");
+  }, [pathname]);
+
+  // Nameplate
   const nameplate = useRef(null);
   const [isHome, setIsHome] = useState(pathname === "/");
   const [showIcon, setShowIcon] = useState(pathname === "/about" || pathname === "/legal");
@@ -44,8 +54,16 @@ const ClientLayout = ({ children }) => {
     closed: { height: "50vh", transition: { height: { duration: 1, ease: "easeInOut" } } },
   };
 
+  let AnimatedRoute = () => {
+    return (
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 1 }}>
+        {children}
+      </motion.div>
+    );
+  };
+
   return (
-    <>
+    <ViewTransitions>
       <motion.div
         className={styles.nameplate}
         ref={nameplate}
@@ -64,8 +82,8 @@ const ClientLayout = ({ children }) => {
         </Link>
       </motion.div>
 
-      {children}
-    </>
+      <AnimatedRoute />
+    </ViewTransitions>
   );
 };
 

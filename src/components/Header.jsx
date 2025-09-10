@@ -1,7 +1,9 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import Link from "next/link";
+// import Link from "next/link";
+
+import { Link } from "next-view-transitions";
 
 const Header = ({ showInfo, currentIndex, image_count, onInfoClick }) => {
   const pathname = usePathname();

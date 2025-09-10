@@ -8,6 +8,8 @@ import Header from "@/components/Header";
 import Media from "@/components/Media";
 import styles from "./project.module.css";
 
+import { motion, AnimatePresence } from "framer-motion";
+
 const Project = ({ project, displayNumber }) => {
   const complete_gallery = [project.thumbnail, ...(project.image_gallery ?? [])];
 
@@ -30,9 +32,19 @@ const Project = ({ project, displayNumber }) => {
         </div>
       )}
 
-      <div className={styles.media_wrapper} onClick={() => handleImageNavigation()}>
-        <Media medium={complete_gallery[currentIndex]} />
-      </div>
+      <AnimatePresence mode="popLayout" initial={false}>
+        <motion.div
+          className={styles.media_wrapper}
+          onClick={() => handleImageNavigation()}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          key={complete_gallery[currentIndex].url}
+        >
+          <Media medium={complete_gallery[currentIndex]} />
+        </motion.div>
+      </AnimatePresence>
     </main>
   );
 };
