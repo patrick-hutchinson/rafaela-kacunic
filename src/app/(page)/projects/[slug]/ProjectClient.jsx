@@ -11,7 +11,7 @@ import styles from "./project.module.css";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Project = ({ project, displayNumber }) => {
-  const complete_gallery = [project.thumbnail, ...(project.image_gallery ?? [])];
+  const complete_gallery = [project.thumbnail, ...(project.imagegallery ?? [])];
 
   const image_count = complete_gallery.length;
 
@@ -20,6 +20,8 @@ const Project = ({ project, displayNumber }) => {
 
   const handleImageNavigation = () => setCurrentIndex((prev) => (prev + 1) % image_count);
   const toggleInfo = () => setShowInfo((prev) => !prev);
+
+  console.log(project, "project");
 
   return (
     <main>

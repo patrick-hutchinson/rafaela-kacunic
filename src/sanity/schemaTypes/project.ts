@@ -12,7 +12,14 @@ export const project = defineType({
       type: "string",
       hidden: true, // required by the plugin, but hidden in Studio
     }),
-    defineField({ name: "name", title: "Name", type: "string" }),
+    defineField({ name: "name", title: "Name", type: "string", validation: (Rule) => Rule.required() }),
+    defineField({
+      name: "thumbnail",
+      title: "Thumbnail",
+      type: "thumbnail",
+      description: "As seen on home page",
+      validation: (Rule) => Rule.required(),
+    }),
     defineField({ name: "year", title: "Year", type: "string" }),
     defineField({
       name: "about",
@@ -21,16 +28,33 @@ export const project = defineType({
       of: [{ type: "block" }],
     }),
     defineField({
-      name: "image_gallery",
-      title: "Image Gallery",
+      name: "imagegallery",
+      title: "Image & Video Gallery",
       type: "array",
-      of: [{ name: "image", title: "Image", type: "image" }],
-    }),
-    defineField({
-      name: "thumbnail",
-      title: "Thumbnail",
-      type: "thumbnail",
-      description: "As seen on home page",
+      of: [
+        {
+          type: "object",
+          fields: [
+            { name: "image", type: "image", hidden: ({ parent }) => !!parent?.video },
+            { name: "video", type: "mux.video", hidden: ({ parent }) => !!parent?.image },
+          ],
+          preview: {
+            select: {
+              image: "image",
+              video: "video",
+            },
+            prepare({ image, video }) {
+              return {
+                title: image ? "Image" : "Video",
+                media: image || video,
+              };
+            },
+          },
+        },
+      ],
+      options: {
+        layout: "grid",
+      },
     }),
     defineField({
       name: "slug",

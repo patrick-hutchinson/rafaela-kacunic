@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@mux/mux-player-react": "^3.6.0",
     "@portabletext/react": "^4.0.3",
     "@sanity/image-url": "^1.2.0",
     "@sanity/orderable-document-list": "^1.4.0",
@@ -20,6 +21,7 @@
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "sanity": "^4.6.1",
+    "sanity-plugin-mux-input": "^2.9.0",
     "styled-components": "^6.1.19"
   },
   "devDependencies": {

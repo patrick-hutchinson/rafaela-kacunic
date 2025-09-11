@@ -16,7 +16,8 @@
   justify-content: space-around;
 }
 
-.media_wrapper img {
+.media_wrapper img,
+.media_wrapper video {
   width: auto;
   height: auto;
   max-width: 100%;

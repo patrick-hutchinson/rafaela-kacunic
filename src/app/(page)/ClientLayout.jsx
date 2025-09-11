@@ -19,10 +19,6 @@ const ClientLayout = ({ children }) => {
   // Route Change and AnimatePresence
   const pathname = usePathname(); // reactive, updates on route change
 
-  useEffect(() => {
-    console.log(pathname, "pathname");
-  }, [pathname]);
-
   // Nameplate
   const nameplate = useRef(null);
   const [isHome, setIsHome] = useState(pathname === "/");

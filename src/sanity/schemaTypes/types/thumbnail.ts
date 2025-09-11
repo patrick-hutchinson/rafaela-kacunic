@@ -2,48 +2,29 @@ import { defineType, defineField } from "sanity";
 
 export const thumbnail = defineType({
   name: "thumbnail",
-  title: "Thumbnail New",
+  title: "Thumbnail",
   type: "object",
   fields: [
     defineField({
-      name: "type",
-      title: "Type",
-      type: "string",
-      options: {
-        list: [
-          { title: "Image", value: "image" },
-          { title: "Video", value: "video" },
-        ],
-        layout: "radio",
-        direction: "horizontal",
-      },
-    }),
-    defineField({
       name: "image",
-      title: "Image",
       type: "image",
-      hidden: ({ parent }) => parent?.type !== "image",
+      title: "Image",
+      hidden: ({ parent }) => !!parent?.video, // hide if video is set
     }),
     defineField({
       name: "video",
+      type: "mux.video",
       title: "Video",
-      type: "file",
-      options: {
-        accept: "video/*", // restrict to video files
-      },
-      hidden: ({ parent }) => parent?.type !== "video",
+      options: { accept: "video/*" },
+      hidden: ({ parent }) => !!parent?.image, // hide if image is set
     }),
   ],
   preview: {
-    select: {
-      type: "type",
-      image: "image",
-      video: "video",
-    },
-    prepare({ type, image, video }) {
+    select: { image: "image", video: "video" },
+    prepare({ image, video }) {
       return {
-        title: type === "image" ? "Image Thumbnail" : "Video Thumbnail",
-        media: type === "image" ? image : video,
+        title: video ? "Video Thumbnail" : "Image Thumbnail",
+        media: image || video,
       };
     },
   },

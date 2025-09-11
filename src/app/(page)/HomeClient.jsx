@@ -3,26 +3,25 @@
 import styles from "./home.module.css";
 
 import Image from "next/image";
-// import Link from "next/link";
 
 import { Link } from "next-view-transitions";
 
 import Media from "@/components/Media";
 import Footer from "@/components/Footer";
 
-import { usePathname } from "next/navigation";
-
 export default function Home({ projects, home }) {
   return (
     <>
       <div className={styles.project_grid}>
-        {projects.map((project, index) => (
-          <div key={index} className={styles.media_wrapper}>
-            <Link href={`/projects/${project.slug.current}`}>
-              <Media medium={project.thumbnail} />
-            </Link>
-          </div>
-        ))}
+        {projects.map((project, index) => {
+          return (
+            <div key={index} className={styles.media_wrapper}>
+              <Link href={`/projects/${project.slug.current}`}>
+                <Media medium={project.thumbnail} />
+              </Link>
+            </div>
+          );
+        })}
       </div>
 
       <div className={styles.hero}>

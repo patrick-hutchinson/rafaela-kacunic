@@ -3,7 +3,7 @@
 import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
 import { visionTool } from "@sanity/vision";
-
+import { muxInput } from "sanity-plugin-mux-input";
 import { structure } from "@/sanity/structure";
 
 import { apiVersion, dataset, projectId } from "./src/sanity/env";
@@ -16,5 +16,5 @@ export default defineConfig({
   schema: {
     types: [...schemaTypes],
   },
-  plugins: [structureTool({ structure }), visionTool({ defaultApiVersion: apiVersion })],
+  plugins: [structureTool({ structure }), muxInput(), visionTool({ defaultApiVersion: apiVersion })],
 });
