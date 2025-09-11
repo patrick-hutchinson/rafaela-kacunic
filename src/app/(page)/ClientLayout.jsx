@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
 
 import { ViewTransitions } from "next-view-transitions";
 
@@ -9,6 +9,8 @@ import { motion } from "framer-motion";
 import { enableScroll, disableScroll } from "@/helpers/blockScrolling";
 
 import { usePathname } from "next/navigation";
+
+import { AnimationContext } from "@/context/AnimationContext";
 
 // import Link from "next/link";
 import { Link } from "next-view-transitions";
@@ -25,6 +27,8 @@ const ClientLayout = ({ children }) => {
   const [showIcon, setShowIcon] = useState(pathname === "/about" || pathname === "/legal");
   const [showOpening, setShowOpening] = useState(isHome);
 
+  const { pathChanged } = useContext(AnimationContext);
+
   useEffect(() => {
     if (showOpening) {
       disableScroll();
@@ -33,8 +37,10 @@ const ClientLayout = ({ children }) => {
   }, [showOpening]);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+    if (pathChanged && !showOpening) {
+      document.querySelector("body").classList.remove("no-scroll");
+    }
+  }, [pathChanged]);
 
   useEffect(() => {
     setTimeout(() => {

@@ -2,6 +2,7 @@ import "../globals.css";
 
 import ClientLayout from "./ClientLayout";
 import { StateProvider } from "@/context/StateContext";
+import { AnimationProvider } from "@/context/AnimationContext";
 
 export const metadata = {
   title: "Rafaela Kaćunić",
@@ -38,9 +39,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="no-scroll">
-        <StateProvider>
-          <ClientLayout>{children}</ClientLayout>
-        </StateProvider>
+        <AnimationProvider>
+          <StateProvider>
+            <ClientLayout>{children}</ClientLayout>
+          </StateProvider>
+        </AnimationProvider>
       </body>
     </html>
   );
