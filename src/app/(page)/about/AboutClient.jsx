@@ -26,8 +26,11 @@ const AboutClient = ({ about }) => {
               <h3 className={styles.section_header}>services</h3>
               <div className={styles.text_wrapper}>
                 <ul>
-                  {about.services.map((service, index) => (
-                    <li key={index}>{service}</li>
+                  {about.services.map((service, index, array) => (
+                    <li key={index} className={styles.service}>
+                      {service}
+                      {index !== array.length - 1 && ", "}
+                    </li>
                   ))}
                 </ul>
               </div>

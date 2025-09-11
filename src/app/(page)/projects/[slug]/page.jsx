@@ -1,12 +1,13 @@
+import { notFound } from "next/navigation";
 import { getProject, getProjects } from "@/sanity/lib/api";
-
 import Project from "./ProjectClient";
 
 export default async function Page({ params }) {
-  const project = await getProject(params.slug);
+  const { slug } = await params; // ✅ wait for params
 
-  const projects = await getProjects(); // all projects
-  const index = projects.findIndex((p) => p.slug.current === params.slug);
+  const project = await getProject(slug);
+  const projects = await getProjects();
+  const index = projects.findIndex((p) => p.slug.current === slug);
 
   if (!project) return notFound();
 

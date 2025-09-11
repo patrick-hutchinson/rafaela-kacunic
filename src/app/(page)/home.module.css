@@ -119,6 +119,8 @@
   left: 19px;
 
   top: 50%;
+
+  pointer-events: all;
 }
 
 .passport_container:hover .mask {
