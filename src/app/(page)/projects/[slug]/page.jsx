@@ -11,5 +11,5 @@ export default async function Page({ params }) {
 
   if (!project) return notFound();
 
-  return <Project project={project} displayNumber={index + 1} />;
+  return <Project project={project} project_index={index + 1} />;
 }

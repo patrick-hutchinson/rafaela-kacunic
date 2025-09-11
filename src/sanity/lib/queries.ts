@@ -56,6 +56,8 @@ export const projectQuery = `*[_type=="project" && slug.current == $slug][0]{
       )
     },
     about,
+    service,
+    client,
     slug
   }`;
 

@@ -27,6 +27,8 @@ export const project = defineType({
       type: "array",
       of: [{ type: "block" }],
     }),
+    defineField({ name: "service", title: "Service", type: "string" }),
+    defineField({ name: "client", title: "Client", type: "string" }),
     defineField({
       name: "imagegallery",
       title: "Image & Video Gallery",

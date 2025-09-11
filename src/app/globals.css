@@ -73,6 +73,11 @@ body {
   letter-spacing: var(--ls3);
 }
 
+body.no-scroll {
+  overflow-y: hidden !important;
+  height: 100vh !important;
+}
+
 h3 {
   font-size: var(--fs3);
   line-height: var(--lh3);
@@ -122,6 +127,7 @@ button:visited {
   text-align: unset;
   background: transparent;
   border: none;
+  cursor: pointer;
 }
 
 header a,

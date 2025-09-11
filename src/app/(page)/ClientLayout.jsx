@@ -26,8 +26,15 @@ const ClientLayout = ({ children }) => {
   const [showOpening, setShowOpening] = useState(isHome);
 
   useEffect(() => {
-    if (showOpening) disableScroll();
+    if (showOpening) {
+      disableScroll();
+      document.querySelector("body").classList.add("no-scroll");
+    }
   }, [showOpening]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     setTimeout(() => {
@@ -43,7 +50,10 @@ const ClientLayout = ({ children }) => {
     setShowIcon(pathname === "/about" || pathname === "/legal");
   }, [pathname]);
 
-  const handleAnimationComplete = () => enableScroll();
+  const handleAnimationComplete = () => {
+    enableScroll();
+    document.querySelector("body").classList.remove("no-scroll");
+  };
 
   const openingVariants = {
     open: { height: "100vh", transition: { height: { duration: 1, ease: "easeInOut" } } },
@@ -51,17 +61,7 @@ const ClientLayout = ({ children }) => {
   };
 
   let AnimatedRoute = () => {
-    return (
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 1 }}
-        key={pathname}
-      >
-        {children}
-      </motion.div>
-    );
+    return <div>{children}</div>;
   };
 
   return (

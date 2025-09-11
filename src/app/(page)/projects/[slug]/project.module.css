@@ -1,6 +1,6 @@
 .info {
   position: absolute;
-  top: calc(var(--margin) + var(--fs3));
+  top: calc(2 * var(--margin) + var(--fs3));
   mix-blend-mode: difference;
   color: #fff;
 }
@@ -19,6 +19,26 @@
   height: auto;
   max-width: 100%;
   max-height: 100%;
+}
+
+.title {
+  text-transform: uppercase;
+}
+
+.title {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.project_index {
+  display: inline-block;
+  margin-right: 5px; /* your gap */
+  flex-shrink: 0; /* prevents it from shrinking */
+}
+
+.service {
+  margin-bottom: 0 !important;
 }
 
 @media screen and (min-width: 769px) {

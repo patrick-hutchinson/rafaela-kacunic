@@ -10,7 +10,7 @@ import styles from "./project.module.css";
 
 import { motion, AnimatePresence } from "framer-motion";
 
-const Project = ({ project, displayNumber }) => {
+const Project = ({ project, project_index }) => {
   const complete_gallery = [project.thumbnail, ...(project.imagegallery ?? [])];
 
   const image_count = complete_gallery.length;
@@ -28,9 +28,16 @@ const Project = ({ project, displayNumber }) => {
       <Header currentIndex={currentIndex} image_count={image_count} showInfo={showInfo} onInfoClick={toggleInfo} />
 
       {showInfo && (
-        <div className={styles.info}>
-          <p>{`${displayNumber}. ${project.name} (${image_count} images) ${project.year}`}</p>
+        <div className={`${styles.info} ff3`}>
+          <p className={styles.title}>
+            <span className={styles.project_index}>{project_index}.</span> {project.name} ({image_count} image
+            {image_count === 1 ? "" : "s"})
+            <br />
+            {project.year}
+          </p>
           <Text text={project.about} />
+          <p className={styles.service}>Service: {project.service}</p>
+          <p className={styles.client}>Client: {project.client}</p>
         </div>
       )}
 
