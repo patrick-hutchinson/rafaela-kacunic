@@ -7,6 +7,7 @@ export const StateContext = createContext();
 
 export const StateProvider = ({ children }) => {
   const [isMobile, setIsMobile] = useState(false);
+  const [deviceDimensions, setDeviceDimensions] = useState({ width: 0, height: 0 });
   const [isSafari, setIsSafari] = useState(false);
 
   // Detect if the screen is mobile size
@@ -14,6 +15,8 @@ export const StateProvider = ({ children }) => {
     const handleResize = () => {
       const newIsMobile = window.innerWidth < 768; // Calculate the new value
       setIsMobile(newIsMobile); // Update the state
+
+      setDeviceDimensions({ width: window.innerWidth, height: window.innerHeight });
     };
 
     handleResize(); // Check on initial render
@@ -27,5 +30,5 @@ export const StateProvider = ({ children }) => {
     setIsSafari(safari);
   }, []);
 
-  return <StateContext.Provider value={{ isMobile, isSafari }}>{children}</StateContext.Provider>;
+  return <StateContext.Provider value={{ isMobile, isSafari, deviceDimensions }}>{children}</StateContext.Provider>;
 };
