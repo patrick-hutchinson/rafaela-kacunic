@@ -3,6 +3,7 @@
   top: calc(2 * var(--margin) + var(--fs3));
   mix-blend-mode: difference;
   color: #fff;
+  z-index: 2;
 }
 
 .media_wrapper {
