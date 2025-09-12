@@ -4,7 +4,9 @@ import styles from "./home.module.css";
 
 import Image from "next/image";
 
-import { Link } from "next-view-transitions";
+import AnimationLink from "@/components/AnimationLink";
+// import Link from "next/link";
+// import { Link } from "next-view-transitions";
 
 import Media from "@/components/Media";
 import Footer from "@/components/Footer";
@@ -16,9 +18,9 @@ export default function Home({ projects, home }) {
         {projects.map((project, index) => {
           return (
             <div key={index} className={styles.media_wrapper}>
-              <Link href={`/projects/${project.slug.current}`}>
+              <AnimationLink path={`/projects/${project.slug.current}`}>
                 <Media medium={project.thumbnail} />
-              </Link>
+              </AnimationLink>
             </div>
           );
         })}

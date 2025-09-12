@@ -2,18 +2,14 @@
 
 import { useState, useEffect, useRef, useContext } from "react";
 
-import { ViewTransitions } from "next-view-transitions";
-
 import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 import { enableScroll, disableScroll } from "@/helpers/blockScrolling";
 
-import { usePathname } from "next/navigation";
-
 import { AnimationContext } from "@/context/AnimationContext";
 
-// import Link from "next/link";
-import { Link } from "next-view-transitions";
+import AnimationLink from "@/components/AnimationLink";
 
 import styles from "./home.module.css";
 
@@ -66,12 +62,8 @@ const ClientLayout = ({ children }) => {
     closed: { height: "50vh", transition: { height: { duration: 1, ease: "easeInOut" } } },
   };
 
-  let AnimatedRoute = () => {
-    return <div>{children}</div>;
-  };
-
   return (
-    <ViewTransitions>
+    <>
       <motion.div
         className={styles.nameplate}
         ref={nameplate}
@@ -84,14 +76,16 @@ const ClientLayout = ({ children }) => {
         variants={openingVariants}
         onAnimationComplete={handleAnimationComplete}
       >
-        <Link href="/about" className={`${showIcon ? styles.showIcon : ""} ${styles.nameplate_inner}`}>
-          <div className={styles.nameplate_text}>RAFAELA</div>
-          <img className={styles.nameplate_icon} src="/assets/images/nameplate-icon.png" alt="Nameplate" />
-        </Link>
+        <div className={`${showIcon ? styles.showIcon : ""} ${styles.nameplate_inner}`}>
+          <AnimationLink path={"/about"}>
+            <div className={styles.nameplate_text}>RAFAELA</div>
+            <img className={styles.nameplate_icon} src="/assets/images/nameplate-icon.png" alt="Nameplate" />
+          </AnimationLink>
+        </div>
       </motion.div>
 
-      <AnimatedRoute />
-    </ViewTransitions>
+      {children}
+    </>
   );
 };
 

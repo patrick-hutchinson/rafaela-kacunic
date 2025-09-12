@@ -1,9 +1,10 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-// import Link from "next/link";
+import Link from "next/link";
+import AnimationLink from "./AnimationLink";
 
-import { Link } from "next-view-transitions";
+// import { Link } from "next-view-transitions";
 
 const Header = ({ showInfo, currentIndex, image_count, onInfoClick }) => {
   const pathname = usePathname();
@@ -20,9 +21,9 @@ const Header = ({ showInfo, currentIndex, image_count, onInfoClick }) => {
   return (
     <header>
       {pathname.includes("projects") && <ProjectOptions />}
-      <Link href="/" className="back_button">
-        BACK
-      </Link>
+      <div className="back_button">
+        <AnimationLink path="/">BACK</AnimationLink>
+      </div>
     </header>
   );
 };

@@ -2,8 +2,9 @@
 
 import styles from "./about.module.css";
 
-// import Link from "next/link";
-import { Link } from "next-view-transitions";
+import Link from "next/link";
+// import { Link } from "next-view-transitions";
+import AnimationLink from "@/components/AnimationLink";
 import Text from "@/components/Text";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -42,9 +43,9 @@ const AboutClient = ({ about }) => {
                 <ul>
                   {about.socials.map((social, index) => (
                     <li key={index}>
-                      <Link href={social.link ? social.link : "#"} target="_blank">
+                      <AnimationLink path={social.link ? social.link : "#"} external={true}>
                         {social.platform}
-                      </Link>
+                      </AnimationLink>
                     </li>
                   ))}
                 </ul>

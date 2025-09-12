@@ -1,4 +1,5 @@
 import Link from "next/link";
+import AnimationLink from "./AnimationLink";
 
 const Footer = () => {
   const year = new Date().getFullYear();
@@ -6,12 +7,12 @@ const Footer = () => {
   return (
     <footer>
       <div>All rights reserved.</div>
-      <Link href="/legal">
+      <AnimationLink path="/legal">
         <div style={{ textAlign: "center" }}>
           PRIVACY & <br />
           IMPRINT
         </div>
-      </Link>
+      </AnimationLink>
       <div>{year} Rafaela Kaćunić</div>
     </footer>
   );

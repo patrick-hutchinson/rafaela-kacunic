@@ -16,7 +16,8 @@
   color: var(--foreground) !important;
 }
 
-.nameplate_inner {
+.nameplate_inner,
+.nameplate_inner a {
   pointer-events: all;
   position: relative;
   display: inline-block;
