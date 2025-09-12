@@ -11,7 +11,7 @@ import styles from "./project.module.css";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Project = ({ project, project_index }) => {
-  const complete_gallery = [project.thumbnail, ...(project.imagegallery ?? [])];
+  const complete_gallery = project.imagegallery;
 
   const image_count = complete_gallery.length;
 
