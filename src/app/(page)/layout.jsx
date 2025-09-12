@@ -3,6 +3,7 @@ import "../globals.css";
 import ClientLayout from "./ClientLayout";
 import { StateProvider } from "@/context/StateContext";
 import { AnimationProvider } from "@/context/AnimationContext";
+import ScrollRestorationController from "@/controllers/ScrollRestorationController";
 
 export const metadata = {
   title: "Rafaela Kaćunić",
@@ -41,7 +42,10 @@ export default function RootLayout({ children }) {
       <body className="no-scroll">
         <AnimationProvider>
           <StateProvider>
-            <ClientLayout>{children}</ClientLayout>
+            <ClientLayout>
+              <ScrollRestorationController />
+              {children}
+            </ClientLayout>
           </StateProvider>
         </AnimationProvider>
       </body>
