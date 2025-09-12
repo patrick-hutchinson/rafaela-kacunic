@@ -9,6 +9,10 @@
   bottom: var(--margin);
 }
 
+.legal_container {
+  hyphens: auto;
+}
+
 @media screen and (min-width: 769px) {
   .legal_container {
     display: grid;
