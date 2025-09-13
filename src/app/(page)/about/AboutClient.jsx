@@ -60,9 +60,8 @@ const AboutClient = ({ about }) => {
             </div>
           </section>
         </div>
-        <div className={styles.footer_container}>
-          <Footer />
-        </div>
+
+        <Footer />
       </main>
     </>
   );

@@ -9,11 +9,12 @@ import Media from "@/components/Media";
 import styles from "./project.module.css";
 
 import { motion, AnimatePresence } from "framer-motion";
+import ProjectInfo from "@/components/ProjectInfo";
 
 const Project = ({ project, project_index }) => {
-  const complete_gallery = project.imagegallery;
+  const image_count = project.imagegallery.length;
 
-  const image_count = complete_gallery.length;
+  console.log(image_count);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showInfo, setShowInfo] = useState(false);
@@ -24,20 +25,12 @@ const Project = ({ project, project_index }) => {
   console.log(project, "project");
 
   return (
-    <main>
+    <main className={styles.project_page} style={{ cursor: image_count > 1 ? "pointer" : "default" }}>
       <Header currentIndex={currentIndex} image_count={image_count} showInfo={showInfo} onInfoClick={toggleInfo} />
 
       {showInfo && (
-        <div className={`${styles.info} ff3`}>
-          <p className={styles.title}>
-            <span className={styles.project_index}>{project_index}.</span> {project.name} ({image_count} image
-            {image_count === 1 ? "" : "s"})
-            <br />
-            {project.year}
-          </p>
-          <Text text={project.about} />
-          <p className={styles.service}>Service: {project.service}</p>
-          <p className={styles.client}>Client: {project.client}</p>
+        <div className={styles.info}>
+          <ProjectInfo project={project} project_index={project_index} />
         </div>
       )}
 
@@ -49,9 +42,9 @@ const Project = ({ project, project_index }) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          key={complete_gallery[currentIndex].url}
+          key={project.imagegallery[currentIndex].url}
         >
-          <Media medium={complete_gallery[currentIndex]} />
+          <Media medium={project.imagegallery[currentIndex]} />
         </motion.div>
       </AnimatePresence>
     </main>

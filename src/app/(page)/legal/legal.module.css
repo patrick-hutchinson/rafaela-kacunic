@@ -19,4 +19,10 @@
     grid-template-columns: 1fr 1fr 1fr; /* three columns */
     gap: var(--margin);
   }
+  .imprint {
+    position: sticky;
+    top: 30px;
+    align-self: start;
+    height: fit-content;
+  }
 }

@@ -13,7 +13,7 @@ const Footer = () => {
           IMPRINT
         </div>
       </AnimationLink>
-      <div>{year} Rafaela Kaćunić</div>
+      <div>© {year} Rafaela Kaćunić</div>
     </footer>
   );
 };

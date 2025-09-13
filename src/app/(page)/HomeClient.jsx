@@ -3,6 +3,7 @@
 import styles from "./home.module.css";
 
 import Image from "next/image";
+import ProjectInfo from "@/components/ProjectInfo";
 
 import AnimationLink from "@/components/AnimationLink";
 // import Link from "next/link";
@@ -17,9 +18,13 @@ export default function Home({ projects, home }) {
       <div className={styles.project_grid}>
         {projects.map((project, index) => {
           return (
-            <div key={index} className={styles.media_wrapper}>
+            <div key={index} className={styles.project_wrapper}>
               <AnimationLink path={`/projects/${project.slug.current}`}>
                 <Media medium={project.thumbnail} />
+
+                <div className={styles.info}>
+                  <ProjectInfo project={project} project_index={index + 1} />
+                </div>
               </AnimationLink>
             </div>
           );
@@ -50,8 +55,8 @@ export default function Home({ projects, home }) {
             </div>
           </div>
         </div>
-        <Footer />
       </div>
+      <Footer />
     </>
   );
 }

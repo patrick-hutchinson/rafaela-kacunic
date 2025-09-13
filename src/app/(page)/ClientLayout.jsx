@@ -39,6 +39,10 @@ const ClientLayout = ({ children }) => {
   }, [pathChanged]);
 
   useEffect(() => {
+    if (pathname !== "/") document.querySelector("body").classList.remove("no-scroll");
+  }, [pathname]);
+
+  useEffect(() => {
     setTimeout(() => {
       setShowOpening(false);
     }, 1000);

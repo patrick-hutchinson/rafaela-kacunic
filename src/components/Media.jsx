@@ -33,16 +33,26 @@ const Media = React.memo(({ medium }) => {
   // Handle Sanity Image
   if (medium.type === "image") {
     return (
-      <Image
-        src={medium.url}
-        alt="image"
-        unoptimized
-        width={medium.width}
-        height={medium.height}
-        draggable={false}
-        placeholder="blur"
-        blurDataURL={medium.lqip}
-      />
+      <div style={getMediaStyle(medium.width / medium.height)}>
+        <Image
+          src={medium.url}
+          alt="image"
+          unoptimized
+          width={medium.width}
+          height={medium.height}
+          draggable={false}
+          placeholder="blur"
+          blurDataURL={medium.lqip}
+          style={{
+            position: "relative",
+            opacity: 1,
+            zIndex: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+          }}
+        />
+      </div>
     );
   }
 
