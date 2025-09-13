@@ -17,7 +17,7 @@ export const project = defineType({
       name: "thumbnail",
       title: "Thumbnail",
       type: "thumbnail",
-      description: "As seen on home page",
+      description: "Displayed on the homepage. Please upload 9:16 only!",
       validation: (Rule) => Rule.required(),
     }),
     defineField({ name: "year", title: "Year", type: "string" }),
