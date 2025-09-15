@@ -44,6 +44,10 @@
   .back_button {
     width: 240px;
   }
+  #header .info_button {
+    min-width: 70px;
+    text-align: left;
+  }
   .video_controls span,
   .video_controls button {
     margin-left: 90px;

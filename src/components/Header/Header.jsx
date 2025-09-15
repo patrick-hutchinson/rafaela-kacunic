@@ -31,7 +31,7 @@ const Header = ({
 
   const InfoButton = () => {
     return (
-      <div>
+      <div className={styles["info_button"]}>
         <button onClick={onInfoClick}>{showInfo ? "CLOSE" : "INFO"}</button>
       </div>
     );
