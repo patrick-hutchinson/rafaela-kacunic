@@ -149,62 +149,27 @@ button:hover {
 
 @keyframes blink {
   0% {
-    color: var(--link_color) !important;
+    color: var(--link_color);
   }
   16.5% {
-    color: var(--foreground) !important;
+    color: var(--foreground);
   }
   33% {
-    color: var(--link_color) !important;
+    color: var(--link_color);
   }
   50% {
-    color: var(--foreground) !important;
+    color: var(--foreground);
   }
   66.5% {
-    color: var(--link_color) !important;
+    color: var(--link_color);
   }
   84% {
-    color: var(--foreground) !important;
+    color: var(--foreground);
   }
   100% {
-    color: var(--foreground) !important;
+    color: var(--foreground);
   }
 }
-
-/* header a:hover,
-header button:hover {
-  animation-name: inverted_blink;
-  animation-duration: 2s;
-  animation-timing-function: ease;
-  animation-iteration-count: 1;
-  animation-delay: 0s;
-
-  animation-fill-mode: forwards;
-}
-
-@keyframes inverted_blink {
-  0% {
-    color: #262626 !important;
-  }
-  16.5% {
-    color: #d7d7d7 !important;
-  }
-  33% {
-    color: #262626 !important;
-  }
-  50% {
-    color: #d7d7d7 !important;
-  }
-  66.5% {
-    color: #262626 !important;
-  }
-  84% {
-    color: #d7d7d7 !important;
-  }
-  100% {
-    color: #262626 !important;
-  }
-} */
 
 header a,
 header button,

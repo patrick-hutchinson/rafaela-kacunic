@@ -46,6 +46,11 @@ const AboutClient = ({ about }) => {
                       </AnimationLink>
                     </li>
                   ))}
+                  <li>
+                    <a href={`mailto:${about.email}`} target="_blank">
+                      Email
+                    </a>
+                  </li>
                 </ul>
               </div>
             </section>
