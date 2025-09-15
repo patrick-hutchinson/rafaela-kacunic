@@ -11,6 +11,8 @@
 :root {
   --background: #ffffff;
   --foreground: #282828;
+  --link_color: #d9d9d9;
+
   --margin: 4px;
 
   /* largest */
@@ -121,12 +123,10 @@ p.ff3,
 }
 
 a,
-a:hover,
 a:visited,
 button,
-button:hover,
 button:visited {
-  color: #d9d9d9;
+  color: var(--link_color);
   text-decoration: none;
   font-size: unset;
   font-family: unset;
@@ -135,6 +135,76 @@ button:visited {
   border: none;
   cursor: pointer;
 }
+
+a:hover,
+button:hover {
+  animation-name: blink;
+  animation-duration: 2s;
+  animation-timing-function: ease;
+  animation-iteration-count: 1;
+  animation-delay: 0s;
+
+  animation-fill-mode: forwards;
+}
+
+@keyframes blink {
+  0% {
+    color: var(--link_color) !important;
+  }
+  16.5% {
+    color: var(--foreground) !important;
+  }
+  33% {
+    color: var(--link_color) !important;
+  }
+  50% {
+    color: var(--foreground) !important;
+  }
+  66.5% {
+    color: var(--link_color) !important;
+  }
+  84% {
+    color: var(--foreground) !important;
+  }
+  100% {
+    color: var(--foreground) !important;
+  }
+}
+
+/* header a:hover,
+header button:hover {
+  animation-name: inverted_blink;
+  animation-duration: 2s;
+  animation-timing-function: ease;
+  animation-iteration-count: 1;
+  animation-delay: 0s;
+
+  animation-fill-mode: forwards;
+}
+
+@keyframes inverted_blink {
+  0% {
+    color: #262626 !important;
+  }
+  16.5% {
+    color: #d7d7d7 !important;
+  }
+  33% {
+    color: #262626 !important;
+  }
+  50% {
+    color: #d7d7d7 !important;
+  }
+  66.5% {
+    color: #262626 !important;
+  }
+  84% {
+    color: #d7d7d7 !important;
+  }
+  100% {
+    color: #262626 !important;
+  }
+} */
 
 header a,
 header button,

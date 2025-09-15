@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import Image from "next/image";
 import MuxPlayer from "@mux/mux-player-react";
@@ -85,6 +85,10 @@ const Media = React.memo(({ medium, setDuration, setProgress, muted, paused }) =
       const secs = Math.floor(seconds % 60);
       return `${minutes}:${secs.toString().padStart(2, "0")}`;
     }
+
+    useEffect(() => {
+      console.log(muted, "muted");
+    }, [muted]);
 
     return (
       <div ref={videoRef} style={getMediaStyle(aspectWidth / aspectHeight)}>

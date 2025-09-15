@@ -20,6 +20,7 @@ export const about = defineType({
         layout: "tags",
       },
     }),
+    defineField({ name: "email", title: "Email", type: "string" }),
     defineField({
       name: "socials",
       title: "Socials",

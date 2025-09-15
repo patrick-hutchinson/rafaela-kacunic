@@ -36,7 +36,12 @@ export default function Home({ projects, home }) {
           <div className={styles.tagline_inner}>
             <div style={{ display: "inline-block", position: "relative", zIndex: 2 }}>{home.tagline}</div>
 
-            <div className={styles.passport_container} style={{ width: `${94}px`, height: `${120}px`, zIndex: 1 }}>
+            <a
+              href="mailto:hutchinsonpatrick@icloud.com"
+              target="_blank"
+              className={styles.passport_container}
+              style={{ width: `${94}px`, height: `${120}px`, zIndex: 1 }}
+            >
               <Image
                 src="/assets/images/PassfotoRK.png"
                 alt="Passport"
@@ -52,7 +57,7 @@ export default function Home({ projects, home }) {
                 className={styles.mask}
                 style={{ width: `${110}px`, height: `${172}px` }}
               />
-            </div>
+            </a>
           </div>
         </div>
       </div>

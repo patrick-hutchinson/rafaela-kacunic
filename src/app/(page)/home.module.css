@@ -12,7 +12,6 @@
 }
 
 .nameplate a,
-.nameplate a:hover,
 .nameplate a:visited {
   color: var(--foreground) !important;
 }
