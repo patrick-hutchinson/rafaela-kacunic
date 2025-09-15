@@ -2,11 +2,9 @@
 
 import styles from "./about.module.css";
 
-import Link from "next/link";
-// import { Link } from "next-view-transitions";
 import AnimationLink from "@/components/AnimationLink";
 import Text from "@/components/Text";
-import Header from "@/components/Header";
+import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer";
 
 const AboutClient = ({ about }) => {

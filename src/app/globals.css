@@ -153,30 +153,6 @@ footer {
   align-items: center;
 }
 
-header {
-  position: fixed;
-  top: var(--margin);
-  width: calc(100% - 2 * var(--margin));
-  display: flex;
-  align-items: center;
-  box-sizing: border-box;
-  z-index: 3;
-}
-
-header .back_button {
-  margin-left: auto;
-  width: 140px;
-  text-align: center;
-}
-
-.project_header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
 mux-player {
   --play-button: none;
   --live-button: none;
@@ -250,15 +226,6 @@ mux-player .mux-spinner {
   margin-bottom: 0 !important;
 }
 
-@supports (view-transition-name: figure-caption) {
-  .support .yes {
-    display: inline;
-  }
-  .support .no {
-    display: none;
-  }
-}
-
 /* Phones */
 @media screen and (min-width: 320px) {
   footer {
@@ -276,10 +243,6 @@ mux-player .mux-spinner {
   footer {
     flex-direction: row;
     gap: 40px;
-  }
-
-  header .back_button {
-    width: 240px;
   }
 }
 
