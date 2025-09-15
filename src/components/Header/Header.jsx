@@ -44,7 +44,11 @@ const Header = ({
   return (
     <header id={styles.header}>
       <div className={styles.header_inner}>
-        {isProject && <InfoButton />}
+        {isProject && (
+          <div className={styles["info_button"]}>
+            <button onClick={onInfoClick}>{showInfo ? "CLOSE" : "INFO"}</button>
+          </div>
+        )}
 
         {showVideoHeader && !isMobile && (
           <VideoControls
