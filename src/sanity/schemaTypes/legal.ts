@@ -18,4 +18,7 @@ export const legal = defineType({
       of: [{ type: "block" }],
     }),
   ],
+  preview: {
+    prepare: () => ({ title: "Legal Info" }),
+  },
 });

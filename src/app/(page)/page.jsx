@@ -1,9 +1,9 @@
-import { getProjects, getHome } from "@/sanity/lib/api";
+import { getProjects, getHome, getAbout } from "@/sanity/lib/api";
 
 import Home from "./HomeClient";
 
 export default async function Page() {
-  const [projects, home] = await Promise.all([getProjects(), getHome()]);
+  const [projects, home, about] = await Promise.all([getProjects(), getHome(), getAbout()]);
 
-  return <Home projects={projects} home={home} />;
+  return <Home projects={projects} home={home} about={about} />;
 }

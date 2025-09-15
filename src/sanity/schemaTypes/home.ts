@@ -5,4 +5,7 @@ export const home = defineType({
   title: "Home",
   type: "document",
   fields: [defineField({ name: "tagline", title: "Tagline", type: "string" })],
+  preview: {
+    prepare: () => ({ title: "Home" }),
+  },
 });

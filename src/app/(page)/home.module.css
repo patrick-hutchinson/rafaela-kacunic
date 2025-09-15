@@ -194,6 +194,9 @@
   .passport_container {
     left: 74px;
   }
+  .tagline {
+    padding: 0 5%;
+  }
 }
 
 /* Large Format Screens */
@@ -201,10 +204,10 @@
   .project_grid {
     grid-template-columns: repeat(6, 1fr); /* 4 items per row */
   }
-  .tagline {
-    padding: 0 20%;
-  }
   .hero {
     height: 1160px;
+  }
+  .tagline {
+    padding: 0 20%;
   }
 }

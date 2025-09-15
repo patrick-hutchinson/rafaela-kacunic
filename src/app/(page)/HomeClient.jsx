@@ -6,13 +6,11 @@ import Image from "next/image";
 import ProjectInfo from "@/components/ProjectInfo";
 
 import AnimationLink from "@/components/AnimationLink";
-// import Link from "next/link";
-// import { Link } from "next-view-transitions";
 
 import Media from "@/components/Media";
 import Footer from "@/components/Footer";
 
-export default function Home({ projects, home }) {
+export default function Home({ projects, home, about }) {
   return (
     <>
       <div className={styles.project_grid}>
@@ -37,7 +35,7 @@ export default function Home({ projects, home }) {
             <div style={{ display: "inline-block", position: "relative", zIndex: 2 }}>{home.tagline}</div>
 
             <a
-              href="mailto:hutchinsonpatrick@icloud.com"
+              href={`mailto:${about.email}`}
               target="_blank"
               className={styles.passport_container}
               style={{ width: `${94}px`, height: `${120}px`, zIndex: 1 }}

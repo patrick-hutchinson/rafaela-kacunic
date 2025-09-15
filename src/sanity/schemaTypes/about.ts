@@ -42,4 +42,7 @@ export const about = defineType({
       of: [{ type: "block" }],
     }),
   ],
+  preview: {
+    prepare: () => ({ title: "About" }),
+  },
 });

@@ -55,6 +55,7 @@ export const aboutQuery = `*[_type == "about"][0]{
           platform,
           link
         },
+        email,
         badland         
       }`;
 

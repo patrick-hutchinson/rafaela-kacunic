@@ -3,7 +3,7 @@ import { thumbnail } from "./types/thumbnail";
 
 export const project = defineType({
   name: "project",
-  title: "Project",
+  title: "Projects",
   type: "document",
   fields: [
     defineField({
@@ -69,4 +69,16 @@ export const project = defineType({
       validation: (Rule) => Rule.required(),
     }),
   ],
+  preview: {
+    select: {
+      title: "name",
+      media: "thumbnail.image", // if your thumbnail type contains an `image` field
+    },
+    prepare({ title, media }) {
+      return {
+        title: title || "Untitled Project",
+        media,
+      };
+    },
+  },
 });
