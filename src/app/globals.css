@@ -216,7 +216,7 @@ footer button {
 
 footer {
   margin-top: auto; /* pushes footer to bottom */
-  margin-bottom: calc(100dvh * 0.25);
+  margin-bottom: calc(100dvh * 0.15);
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -313,6 +313,7 @@ mux-player .mux-spinner {
   footer {
     flex-direction: row;
     gap: 40px;
+    margin-bottom: calc(100dvh * 0.25);
   }
 }
 
