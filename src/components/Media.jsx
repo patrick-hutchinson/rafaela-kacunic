@@ -112,7 +112,7 @@ const Media = React.memo(({ medium, setDuration, setProgress, muted, paused }) =
             autoPlay
             controls={false}
             loop
-            muted={muted ? muted : true}
+            muted={muted ?? true}
             paused={paused ? paused : false}
             playsInline
             fill
