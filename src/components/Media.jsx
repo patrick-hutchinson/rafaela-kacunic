@@ -86,10 +86,6 @@ const Media = React.memo(({ medium, setDuration, setProgress, muted, paused }) =
       return `${minutes}:${secs.toString().padStart(2, "0")}`;
     }
 
-    useEffect(() => {
-      console.log(muted, "muted");
-    }, [muted]);
-
     return (
       <div ref={videoRef} style={getMediaStyle(aspectWidth / aspectHeight)}>
         {!isLoaded && (
