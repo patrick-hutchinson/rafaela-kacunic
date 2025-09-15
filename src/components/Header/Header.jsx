@@ -61,7 +61,7 @@ const Header = ({
           />
         )}
 
-        {isProject && <MediaCounter />}
+        {isProject && <div className={styles.media_count}>{`${currentIndex + 1}/${image_count}`}</div>}
       </div>
       <div className={styles.back_button}>
         <AnimationLink path="/">BACK</AnimationLink>

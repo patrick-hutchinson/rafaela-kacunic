@@ -8,7 +8,7 @@
   z-index: 3;
 
   mix-blend-mode: difference;
-  color: var(--foreground);
+  color: #d7d7d7;
 }
 
 #header a,
