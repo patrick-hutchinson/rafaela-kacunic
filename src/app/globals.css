@@ -135,16 +135,17 @@ button:visited {
   border: none;
   cursor: pointer;
 }
+@media (hover: hover) and (pointer: fine) {
+  a:hover,
+  button:hover {
+    animation-name: blink;
+    animation-duration: 2s;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+    animation-delay: 0s;
 
-a:hover,
-button:hover {
-  animation-name: blink;
-  animation-duration: 2s;
-  animation-timing-function: ease;
-  animation-iteration-count: 1;
-  animation-delay: 0s;
-
-  animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+  }
 }
 
 @keyframes blink {
