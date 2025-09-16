@@ -82,6 +82,8 @@
   }
 }
 
+/* *** */
+
 /* Project Grid */
 .project_grid {
   display: grid;
@@ -139,6 +141,8 @@
   position: relative;
 }
 
+/* Passport Image */
+
 .passport_container {
   position: absolute;
   left: 0px;
@@ -146,9 +150,6 @@
   pointer-events: all;
 }
 
-.passport_container:hover .mask {
-  opacity: 1;
-}
 .passport_container img {
   position: absolute;
   top: 0;
@@ -159,6 +160,10 @@
   left: -10% !important;
   top: 3% !important;
   transition: opacity 0.3s ease-out;
+}
+
+.passport_container.viewMask .mask {
+  opacity: 1;
 }
 
 /* Phones */

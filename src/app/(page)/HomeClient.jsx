@@ -1,5 +1,9 @@
 "use client";
 
+import { useContext, useState, useEffect } from "react";
+
+import { StateContext } from "@/context/StateContext";
+
 import styles from "./home.module.css";
 
 import Image from "next/image";
@@ -11,6 +15,29 @@ import Media from "@/components/Media";
 import Footer from "@/components/Footer";
 
 export default function Home({ projects, home, about }) {
+  const { isMobile } = useContext(StateContext);
+  const [isScrolling, setIsScrolling] = useState(false);
+
+  // Detect Scrolling on Mobile to show Mask
+  useEffect(() => {
+    if (!isMobile) return;
+
+    let scrollTimeout;
+
+    const handleScroll = () => {
+      // reset after a short delay to detect "scrolling stopped"
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => setIsScrolling(false), 150);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      clearTimeout(scrollTimeout);
+    };
+  }, [isMobile]);
+
   return (
     <>
       <div className={styles.project_grid}>
@@ -37,7 +64,7 @@ export default function Home({ projects, home, about }) {
             <a
               href={`mailto:${about.email}`}
               target="_blank"
-              className={styles.passport_container}
+              className={`${styles.passport_container} ${isScrolling ? styles.viewMask : null}`}
               style={{ width: `${94}px`, height: `${120}px`, zIndex: 1 }}
             >
               <Image
