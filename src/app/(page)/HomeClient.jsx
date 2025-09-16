@@ -21,13 +21,12 @@ export default function Home({ projects, home, about }) {
   // Detect Scrolling on Mobile to show Mask
   useEffect(() => {
     if (!isMobile) return;
-
     let scrollTimeout;
 
     const handleScroll = () => {
-      // reset after a short delay to detect "scrolling stopped"
+      setIsScrolling(true); // scrolling started
       clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(() => setIsScrolling(false), 150);
+      scrollTimeout = setTimeout(() => setIsScrolling(false), 150); // scrolling stopped
     };
 
     window.addEventListener("scroll", handleScroll);
