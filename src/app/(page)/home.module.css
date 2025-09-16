@@ -207,6 +207,9 @@
   .hero {
     height: 1160px;
   }
+  .passport_container {
+    left: 0px;
+  }
   .tagline {
     padding: 0 30%;
   }
