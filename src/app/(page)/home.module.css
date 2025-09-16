@@ -156,14 +156,14 @@
   left: 0;
 }
 .passport_container .mask {
-  opacity: 0;
+  opacity: 1;
   left: -10% !important;
   top: 3% !important;
   transition: opacity 0.3s ease-out;
 }
 
 .passport_container.viewMask .mask {
-  opacity: 1;
+  opacity: 0;
 }
 
 /* Phones */
