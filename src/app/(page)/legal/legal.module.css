@@ -21,7 +21,7 @@
   }
   .imprint {
     position: sticky;
-    top: 30px;
+    top: var(--margin);
     align-self: start;
     height: fit-content;
   }

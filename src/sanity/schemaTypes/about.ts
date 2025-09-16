@@ -14,6 +14,7 @@ export const about = defineType({
     defineField({
       name: "services",
       title: "Services",
+      description: "→ Gib einen Service ein und drücke danach ENTER ✅",
       type: "array",
       of: [{ type: "string" }],
       options: {

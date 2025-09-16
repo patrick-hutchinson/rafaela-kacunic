@@ -7,7 +7,6 @@ export const project = defineType({
   title: "Projects",
   type: "document",
   fields: [
-    orderRankField({ type: "project" }), // handles hidden + ordering logic
     defineField({
       name: "orderRank",
       title: "Order Rank",
