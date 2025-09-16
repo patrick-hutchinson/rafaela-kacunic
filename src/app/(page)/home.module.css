@@ -141,10 +141,8 @@
 
 .passport_container {
   position: absolute;
-  left: 19px;
-
+  left: 0px;
   top: 50%;
-
   pointer-events: all;
 }
 
@@ -165,15 +163,15 @@
 
 /* Phones */
 @media screen and (min-width: 320px) {
+  .tagline {
+    padding: 0 10vw;
+  }
 }
 
 /* iPads and other Tablets */
 @media screen and (min-width: 769px) {
   .project_grid {
     grid-template-columns: repeat(3, 1fr); /* 4 items per row */
-  }
-  .passport_container {
-    left: 61px;
   }
   .hero {
     height: 586px;
@@ -191,11 +189,9 @@
   .project_grid {
     grid-template-columns: repeat(4, 1fr); /* 4 items per row */
   }
-  .passport_container {
-    left: 74px;
-  }
+
   .tagline {
-    padding: 0 5vw;
+    padding: 0 10vw;
   }
 }
 
@@ -207,10 +203,8 @@
   .hero {
     height: 1160px;
   }
-  .passport_container {
-    left: 0px;
-  }
+
   .tagline {
-    padding: 0 30%;
+    padding: 0 30vw;
   }
 }
