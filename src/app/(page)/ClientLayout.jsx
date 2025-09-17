@@ -66,6 +66,10 @@ const ClientLayout = ({ children }) => {
     closed: { height: "50vh", transition: { height: { duration: 1, ease: "easeInOut" } } },
   };
 
+  useEffect(() => {
+    console.log(isHome, "isHome");
+  }, [isHome]);
+
   return (
     <>
       <motion.div
