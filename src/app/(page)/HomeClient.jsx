@@ -37,6 +37,8 @@ export default function Home({ projects, home, about }) {
     };
   }, [isMobile]);
 
+  console.log(projects, "projects");
+
   return (
     <>
       <div className={styles.project_grid}>

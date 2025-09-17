@@ -1,4 +1,4 @@
-export const projectsQuery = `*[_type=="project"]{
+export const projectsQuery = `*[_type=="project"] | order(orderRank){
       name,
       orderRank,
       year,
