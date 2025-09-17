@@ -2,7 +2,7 @@ import { orderableDocumentListDeskItem } from "@sanity/orderable-document-list";
 import type { StructureResolver } from "sanity/structure";
 
 // Define singleton document IDs here
-const singletons = ["home", "about", "legal"];
+const singletons = ["home", "about", "legal", "site"];
 
 // Add other types you want to hide from Desk here
 const hiddenTypes = [...singletons, "project", "mux.videoAsset"];
@@ -11,7 +11,10 @@ export const structure: StructureResolver = (S, context) =>
   S.list()
     .title("Content")
     .items([
-      // Singleton Home document
+      // Singletons
+
+      S.listItem().title("Site Settings").child(S.document().schemaType("site").documentId("site")),
+
       S.listItem().title("Home").child(S.document().schemaType("home").documentId("home")),
 
       S.listItem().title("About").child(S.document().schemaType("about").documentId("about")),
