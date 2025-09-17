@@ -40,19 +40,17 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <ViewTransitions>
-      <html lang="en">
+    <html lang="en">
+      <ScrollRestorationController />
+      <ViewTransitions>
         <body className="no-scroll">
           <AnimationProvider>
             <StateProvider>
-              <ClientLayout>
-                <ScrollRestorationController />
-                {children}
-              </ClientLayout>
+              <ClientLayout>{children}</ClientLayout>
             </StateProvider>
           </AnimationProvider>
         </body>
-      </html>
-    </ViewTransitions>
+      </ViewTransitions>
+    </html>
   );
 }

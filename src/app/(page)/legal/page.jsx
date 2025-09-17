@@ -1,7 +1,7 @@
 import { getLegal } from "@/sanity/lib/api";
 import LegalClient from "./LegalClient";
 
-export const revalidate = 60; // seconds
+export const revalidate = 10; // seconds
 
 export default async function Legal() {
   const legal = await getLegal();

@@ -2,7 +2,7 @@ import { getAbout } from "@/sanity/lib/api";
 
 import AboutClient from "./AboutClient";
 
-export const revalidate = 60; // seconds
+export const revalidate = 10; // seconds
 
 export default async function About() {
   const about = await getAbout();
