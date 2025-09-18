@@ -19,7 +19,7 @@ const ClientLayout = ({ children }) => {
 
   // Nameplate
   const nameplate = useRef(null);
-  const [isHome, setIsHome] = useState(pathname === "/");
+  const isHome = pathname === "/";
   const [showIcon, setShowIcon] = useState(pathname === "/about" || pathname === "/legal");
   const [showOpening, setShowOpening] = useState(isHome);
 
@@ -47,10 +47,6 @@ const ClientLayout = ({ children }) => {
       setShowOpening(false);
     }, 1000);
   }, []);
-
-  useEffect(() => {
-    setIsHome(pathname === "/");
-  }, [pathname]);
 
   useEffect(() => {
     setShowIcon(pathname === "/about" || pathname === "/legal");
