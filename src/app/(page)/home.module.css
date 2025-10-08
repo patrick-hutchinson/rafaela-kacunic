@@ -9,6 +9,11 @@
 
   pointer-events: none;
   z-index: 3;
+  opacity: 1;
+}
+
+.nameplate.hidden {
+  opacity: 0;
 }
 
 .nameplate a,

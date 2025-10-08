@@ -20,8 +20,10 @@ const ClientLayout = ({ children }) => {
   // Nameplate
   const nameplate = useRef(null);
   const isHome = pathname === "/";
-  const [showIcon, setShowIcon] = useState(pathname === "/about" || pathname === "/legal");
+  const [showIcon, setShowIcon] = useState(pathname === "/legal");
   const [showOpening, setShowOpening] = useState(isHome);
+  const [destination, setDestination] = useState("/about");
+  const [hidden, setHidden] = useState(false);
 
   const { pathChanged } = useContext(AnimationContext);
 
@@ -38,8 +40,14 @@ const ClientLayout = ({ children }) => {
     }
   }, [pathChanged]);
 
+  // Change the destination of the scribble depending on the current page
   useEffect(() => {
     if (pathname !== "/") document.querySelector("body").classList.remove("no-scroll");
+  }, [pathname]);
+
+  // ✅ Correct syntax:
+  useEffect(() => {
+    pathname.includes("/project") ? setHidden(true) : setHidden(false);
   }, [pathname]);
 
   useEffect(() => {
@@ -49,7 +57,11 @@ const ClientLayout = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    setShowIcon(pathname === "/about" || pathname === "/legal");
+    setShowIcon(pathname === "/legal");
+  }, [pathname]);
+
+  useEffect(() => {
+    pathname === "/about" ? setDestination("/") : setDestination("/about");
   }, [pathname]);
 
   const handleAnimationComplete = () => {
@@ -69,7 +81,7 @@ const ClientLayout = ({ children }) => {
   return (
     <>
       <motion.div
-        className={styles.nameplate}
+        className={`${styles.nameplate} ${hidden ? styles.hidden : ""}`}
         ref={nameplate}
         style={{
           position: isHome ? "sticky" : "fixed",
@@ -80,8 +92,8 @@ const ClientLayout = ({ children }) => {
         variants={openingVariants}
         onAnimationComplete={handleAnimationComplete}
       >
-        <div className={`${showIcon ? styles.showIcon : ""} ${styles.nameplate_inner}`}>
-          <AnimationLink path={"/about"}>
+        <div className={`${showIcon ? styles.showIcon : ""}  ${styles.nameplate_inner}`}>
+          <AnimationLink path={destination}>
             <div className={styles.nameplate_text}>RAFAELA</div>
             <img className={styles.nameplate_icon} src="/assets/images/nameplate-icon.png" alt="Nameplate" />
           </AnimationLink>

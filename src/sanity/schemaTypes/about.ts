@@ -14,11 +14,10 @@ export const about = defineType({
     defineField({
       name: "services",
       title: "Services",
-      description: "→ Gib einen Service ein und drücke danach ENTER ✅",
       type: "array",
       of: [{ type: "string" }],
       options: {
-        layout: "tags",
+        sortable: true, // 👈 enables drag-and-drop reordering
       },
     }),
     defineField({ name: "email", title: "Email", type: "string" }),
