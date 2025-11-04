@@ -1,7 +1,7 @@
 import Text from "@/components/Text";
 
 const ProjectInfo = ({ project, project_index }) => {
-  const image_count = project.imagegallery.length;
+  const image_count = project?.imagegallery?.length;
 
   return (
     <div className="info ff3">

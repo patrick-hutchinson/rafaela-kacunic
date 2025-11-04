@@ -15,7 +15,7 @@ import styles from "./project.module.css";
 const Project = ({ project, project_index }) => {
   const { isMobile } = useContext(StateContext);
 
-  const image_count = project.imagegallery.length;
+  const image_count = project?.imagegallery?.length;
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showInfo, setShowInfo] = useState(false);
