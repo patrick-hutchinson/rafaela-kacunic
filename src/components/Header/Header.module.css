@@ -8,13 +8,13 @@
   z-index: 3;
 
   mix-blend-mode: difference;
-  color: #d7d7d7;
+  color: #000;
 }
 
 #header a,
 #header button {
   filter: invert();
-  color: #d7d7d7; /* Header is difference blend mode, so invert */
+  color: #000; /* Header is difference blend mode, so invert */
 }
 
 .project_header {
