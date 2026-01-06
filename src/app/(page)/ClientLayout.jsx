@@ -20,6 +20,7 @@ const ClientLayout = ({ children }) => {
   // Nameplate
   const nameplate = useRef(null);
   const isHome = pathname === "/";
+  const [noPointerEventsOnIcon, setNoPointerEventsOnIcon] = useState(pathname === "/legal");
   const [showIcon, setShowIcon] = useState(pathname === "/legal");
   const [showOpening, setShowOpening] = useState(isHome);
   const [destination, setDestination] = useState("/about");
@@ -45,7 +46,6 @@ const ClientLayout = ({ children }) => {
     if (pathname !== "/") document.querySelector("body").classList.remove("no-scroll");
   }, [pathname]);
 
-  // ✅ Correct syntax:
   useEffect(() => {
     pathname.includes("/project") ? setHidden(true) : setHidden(false);
   }, [pathname]);
@@ -56,8 +56,14 @@ const ClientLayout = ({ children }) => {
     }, 1000);
   }, []);
 
+  const iconPaths = ["/legal", "/about"];
+
   useEffect(() => {
-    setShowIcon(pathname === "/legal");
+    setShowIcon(iconPaths.includes(pathname));
+  }, [pathname]);
+
+  useEffect(() => {
+    setNoPointerEventsOnIcon(pathname === "/legal");
   }, [pathname]);
 
   useEffect(() => {
@@ -92,7 +98,9 @@ const ClientLayout = ({ children }) => {
         variants={openingVariants}
         onAnimationComplete={handleAnimationComplete}
       >
-        <div className={`${showIcon ? styles.showIcon : ""}  ${styles.nameplate_inner}`}>
+        <div
+          className={`${showIcon ? styles.showIcon : ""} ${noPointerEventsOnIcon ? styles.noPointerEvents : ""}  ${styles.nameplate_inner}`}
+        >
           <AnimationLink path={destination}>
             <div className={styles.nameplate_text}>RAFAELA</div>
             <img className={styles.nameplate_icon} src="/assets/images/nameplate-icon.png" alt="Nameplate" />

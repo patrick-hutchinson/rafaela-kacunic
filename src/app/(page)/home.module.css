@@ -47,8 +47,8 @@
   transition: opacity 0.3s ease-out;
 }
 
-.nameplate_inner.showIcon,
-.nameplate_inner.showIcon a {
+.nameplate_inner.noPointerEvents,
+.nameplate_inner.noPointerEvents a {
   pointer-events: none;
 }
 
