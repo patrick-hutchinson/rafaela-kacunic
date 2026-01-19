@@ -11,7 +11,7 @@ import { StateContext } from "@/context/StateContext";
 const Media = React.memo(({ medium, setDuration, setProgress, muted, paused }) => {
   if (!medium) return null; // Handle early return
 
-  const { deviceDimensions } = useContext(StateContext);
+  const { deviceDimensions, isMobile } = useContext(StateContext);
 
   const [isLoaded, setIsLoaded] = useState(false);
   const videoRef = useRef(null);
@@ -33,10 +33,30 @@ const Media = React.memo(({ medium, setDuration, setProgress, muted, paused }) =
 
   // Handle Sanity Image
   if (medium.type === "image") {
+    let src;
+
+    if (medium.width && medium.height) {
+      // Safe downscaling (only if metadata exists)
+      const MAX_SIZE = isMobile ? 2000 : 3000;
+      const originalW = medium.width;
+      const originalH = medium.height;
+
+      const scale =
+        originalW > MAX_SIZE || originalH > MAX_SIZE ? Math.min(MAX_SIZE / originalW, MAX_SIZE / originalH) : 1;
+
+      const targetW = Math.round(originalW * scale);
+      const targetH = Math.round(originalH * scale);
+
+      src = `${medium.url}?w=${targetW}&h=${targetH}&fit=crop&auto=format`;
+    } else {
+      // Fallback (no metadata → use original URL)
+      src = medium.url;
+    }
+
     return (
       <div style={getMediaStyle(medium.width / medium.height)}>
         <Image
-          src={medium.url}
+          src={src}
           alt="image"
           unoptimized
           width={medium.width}
